@@ -1,1 +1,346 @@
+// blog.html - Main blog listing page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Strategic Solutions Consulting</title>
+    <style>
+        /* Include all previous styles from index.html and add these blog-specific styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .read-more:hover {
+            background: #34495e;
+        }
+
+        .blog-categories {
+            margin: 2rem 0;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin: 0.2rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: background 0.3s;
+        }
+
+        .category-tag:hover {
+            background: #e9ecef;
+        }
+
+        .search-bar {
+            margin: 2rem 0;
+        }
+
+        .search-bar input {
+            padding: 0.8rem;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .pagination a {
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .pagination a:hover {
+            background: #e9ecef;
+        }
+
+        .pagination .active {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="blog-section" style="padding-top: 6rem;">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Insights, news, and expertise from our consulting team</p>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search articles...">
+            </div>
+
+            <div class="blog-categories">
+                <a href="#" class="category-tag">Strategy</a>
+                <a href="#" class="category-tag">Digital Transformation</a>
+                <a href="#" class="category-tag">Innovation</a>
+                <a href="#" class="category-tag">Leadership</a>
+                <a href="#" class="category-tag">Industry Insights</a>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="Blog post" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">January 15, 2024 • Strategy</div>
+                        <h2>Digital Transformation in 2024: Key Trends</h2>
+                        <p class="blog-excerpt">Explore the latest trends shaping digital transformation strategies in the modern business landscape...</p>
+                        <a href="blog-posts/digital-transformation-2024.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="Blog post" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">January 10, 2024 • Leadership</div>
+                        <h2>Building Resilient Teams</h2>
+                        <p class="blog-excerpt">Learn effective strategies for developing and maintaining high-performing teams in challenging environments...</p>
+                        <a href="blog-posts/building-resilient-teams.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="Blog post" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">January 5, 2024 • Innovation</div>
+                        <h2>AI in Business Strategy</h2>
+                        <p class="blog-excerpt">Discover how artificial intelligence is reshaping business strategy and decision-making processes...</p>
+                        <a href="blog-posts/ai-business-strategy.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Next →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Strategic Solutions Consulting. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+// blog-post-template.html - Template for individual blog posts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Title - Strategic Solutions Consulting</title>
+    <style>
+        /* Include all previous styles and add these blog-post specific styles */
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .blog-content {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .blog-content h2 {
+            margin-top: 2rem;
+        }
+
+        .share-buttons {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .share-button {
+            padding: 0.5rem 1rem;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .related-posts {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <article class="blog-post">
+        <header class="blog-header">
+            <h1>Digital Transformation in 2024: Key Trends</h1>
+            <div class="blog-meta">January 15, 2024 • Strategy • 5 min read</div>
+        </header>
+
+        <div class="author-info">
+            <img src="/api/placeholder/60/60" alt="Author" class="author-avatar">
+            <div>
+                <h3>Sarah Johnson</h3>
+                <p>Managing Partner, Digital Strategy</p>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <img src="/api/placeholder/800/400" alt="Featured image">
+            
+            <p>Your blog post content goes here...</p>
+            
+            <h2>Section Heading</h2>
+            <p>Section content goes here...</p>
+            
+            <!-- Add more sections as needed -->
+        </div>
+
+        <div class="share-buttons">
+            <a href="#" class="share-button">Share on LinkedIn</a>
+            <a href="#" class="share-button">Share on Twitter</a>
+            <a href="#" class="share-button">Share on Facebook</a>
+        </div>
+
+        <div class="related-posts">
+            <h2>Related Articles</h2>
+            <div class="related-grid">
+                <article class="blog-card">
+                    <img src="/api/placeholder/400/200" alt="Related post" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">January 10, 2024 • Strategy</div>
+                        <h3>Building Resilient Teams</h3>
+                        <a href="building-resilient-teams.html" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <!-- Add more related posts as needed -->
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Strategic Solutions Consulting. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
