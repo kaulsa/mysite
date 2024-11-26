@@ -85,26 +85,6 @@ section {
     transform: translateY(-5px);
 }
 
-/* Team Styles */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.team-member {
-    text-align: center;
-}
-
-.team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    object-fit: cover;
-}
-
 /* Contact Form Styles */
 #contact {
     background: #f8f9fa;
