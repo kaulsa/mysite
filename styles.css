@@ -55,7 +55,7 @@ section {
 #hero {
     background: linear-gradient(rgba(33, 99, FF, 0.9), rgba(33, 99, FF, 0.9)), url('/api/placeholder/1200/600');
     background-size: cover;
-    color: white;
+    color: blue;
     text-align: center;
     padding: 8rem 2rem;
 }
