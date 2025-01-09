@@ -53,9 +53,9 @@ section {
 
 /* Hero Section Styles */
 #hero {
-    background: linear-gradient(rgba(33,99,FF,0.9), rgba(33,99,FF,0.9)), url('/api/placeholder/1200/600');
+    background: linear-gradient(rgba(00,00,CC,0.9), rgba(00,00,CC,0.9)), url('/api/placeholder/1200/600');
     background-size: cover;
-    color: black;
+    color: white;
     text-align: center;
     padding: 8rem 2rem;
 }
