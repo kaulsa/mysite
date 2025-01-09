@@ -53,18 +53,47 @@ section {
 
 /* Hero Section Styles */
 #hero {
-    background: linear-gradient(rgba(00,00,CC,0.9), rgba(00,00,CC,0.9)), url('/api/placeholder/1200/600');
-    background-size: cover;
-    color: white;
-    text-align: center;
-    padding: 8rem 2rem;
-}
+       background-color: #0000CC;
+      color: #FFFFFF;
+      padding: 4rem 2rem;
+      text-align: center;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: white;
+      color: #0000CC;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+  
 /* Services Styles */
 .services-grid {
     display: grid;
