@@ -6,40 +6,165 @@
     <title>Coresight Consulting</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        nav ul {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+       * {
+            margin: 0;
             padding: 0;
-            list-style: none;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        } 
+      body {
+            line-height: 1.6;
+        }
+        /* Header Styles */
+        header {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        nav ul li:last-child {
-            grid-column: 1 / -1; /* Makes the last item span full width */
-            text-align: center;
+        .logo {
+        <a href="/">
+            <img src="img/CoresightConsulting.png" alt="Company Logo" class="logo">
+                height: 50px;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: block;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background: #333;
+            transition: all 0.3s ease;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 99;
+        }
+
+        nav.active {
+            right: 0;
+        }
+        
+        
+        nav ul {
+            padding: 70px 20px 20px;
+            list-style: none;
+        }
+ nav ul li {
+            margin: 15px 0;
         }
 
         nav ul li a {
-            display: block;
-            padding: 10px;
+            color: #333;
             text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* When menu is open */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+  /* Hero Section */
+        #hero {
+            background: #808080;  /* Changed to grey */
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;  /* Changed text to white for better contrast */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: inherit;  /* Will inherit white from hero section */
+        }
+
+        /* Blog Section */
+        #blog {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            min-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="/">
-            <img src="img/CoresightConsulting.png" alt="Company Logo" class="logo">
-        </a>
+        <img src="/api/placeholder/150/50" alt="Company Logo" class="logo">
+        <button class="hamburger" id="menuButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header> 
-    <nav>
+    <nav id="nav">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <section id="hero">
@@ -50,20 +175,21 @@
     </section>
     <section id="blog">
         <div class="container">
-            <h2>Blog</h2>
-            <div class="container">
-                <h2>Latest Insights</h2>
-                <p>Read our latest thoughts and insights on business consulting</p>
-                <div class="blog-grid">
-                    <!-- Include your 3 most recent blog posts here -->
-                    <article class="blog-card">
-                        <!-- Blog card content -->
-                    </article>
-                    <!-- Add 2 more recent posts -->
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="blog.html" class="read-more">View All Posts</a>
-                </div>
+            <h2>Latest Insights</h2>
+            <p>Read our latest thoughts and insights on business consulting</p>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <h3>Digital Transformation Strategies</h3>
+                    <p>Exploring the latest trends in digital transformation and how businesses can adapt...</p>
+                </article>
+                <article class="blog-card">
+                    <h3>Future of Work</h3>
+                    <p>Understanding the evolving workplace dynamics and preparing for the future...</p>
+                </article>
+                <article class="blog-card">
+                    <h3>Sustainable Business Practices</h3>
+                    <p>Implementing eco-friendly strategies while maintaining profitability...</p>
+                </article>
             </div>
         </div>
     </section>
@@ -72,5 +198,15 @@
             <p>&copy; 2024 Coresight Consulting. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const nav = document.getElementById('nav');
+
+        menuButton.addEventListener('click', () => {
+            menuButton.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
