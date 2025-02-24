@@ -4,50 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coresight Consulting</title>
- <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        nav ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li:last-child {
+            grid-column: 1 / -1; /* Makes the last item span full width */
+            text-align: center;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<header>
+    <header>
         <a href="/">
             <img src="img/CoresightConsulting.png" alt="Company Logo" class="logo">
         </a>
-     </header> 
+    </header> 
     <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
     <section id="hero">
         <div class="container">
             <h1>Coresight Consulting</h1>
             <p>Transforming businesses through innovative strategies and actionable insights</p>
         </div>
     </section>
-
-     <section id="blog">
+    <section id="blog">
         <div class="container">
             <h2>Blog</h2>
-             <div class="container">
-        <h2>Latest Insights</h2>
-        <p>Read our latest thoughts and insights on business consulting</p>
-        <div class="blog-grid">
-            <!-- Include your 3 most recent blog posts here -->
-            <article class="blog-card">
-                <!-- Blog card content -->
-            </article>
-            <!-- Add 2 more recent posts -->
+            <div class="container">
+                <h2>Latest Insights</h2>
+                <p>Read our latest thoughts and insights on business consulting</p>
+                <div class="blog-grid">
+                    <!-- Include your 3 most recent blog posts here -->
+                    <article class="blog-card">
+                        <!-- Blog card content -->
+                    </article>
+                    <!-- Add 2 more recent posts -->
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="blog.html" class="read-more">View All Posts</a>
+                </div>
+            </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="blog.html" class="read-more">View All Posts</a>
-        </div>
-    </div>
     </section>
-
     <footer>
         <div class="container">
             <p>&copy; 2024 Coresight Consulting. All rights reserved.</p>
