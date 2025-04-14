@@ -6,9 +6,23 @@
     <title>Coresight Consulting</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Logo styling */
+        .logo-link {
+            display: inline-block;
+        }
+        
+        .logo {
+            height: 50px;
+            transition: transform 0.2s ease;
+        }
+        
+        .logo-link:hover .logo {
+            transform: scale(1.05);
+        }
+        
         /* Button styling */
         button.contact-btn {
-            background-color: #666666;
+            background-color: #4CAF50;
             color: white;
             padding: 12px 25px;
             border: none;
@@ -49,7 +63,7 @@
 </head>
 <body>
 <header>
-    <a href="/">
+    <a href="index.html" class="logo-link">
         <img src="img/CoresightConsulting.png" alt="Company Logo" class="logo">
     </a>
 </header> 
