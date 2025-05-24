@@ -272,15 +272,35 @@
             <p>&copy; 2024 Coresight Consulting. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
-        const menuButton = document.getElementById('menuButton');
-        const nav = document.getElementById('nav');
+        // Scroll animation
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
 
-        menuButton.addEventListener('click', () => {
-            menuButton.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(function(element) {
+                if (isElementInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check
+        handleScrollAnimation();
+
+        // Check on scroll
+        window.addEventListener('scroll', handleScrollAnimation);
+        window.addEventListener('resize', handleScrollAnimation);
     </script>
 </body>
 </html>
+
+   
