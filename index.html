@@ -294,6 +294,13 @@
                 }
             });
         }
+        const menuButton = document.getElementById('menuButton');
+        const nav = document.getElementById('nav');
+
+        menuButton.addEventListener('click', () => {
+            menuButton.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
 
         // Initial check
         handleScrollAnimation();
