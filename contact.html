@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coresight Consulting</title>
+    <title>Contact Us - Coresight Consulting</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Logo styling */
         .logo-link {
             display: inline-block;
         }
-        
+
         .logo {
             height: 50px;
             transition: transform 0.2s ease;
         }
-        
+
         .logo-link:hover .logo {
             transform: scale(1.05);
         }
-        
-        /* Button styling */
+
+        /* Button styling - FIX #4: consistent colour, no grey default */
         button.contact-btn {
-            background-color: #999999;
+            background-color: #45a049;
             color: white;
             padding: 12px 25px;
             border: none;
@@ -35,18 +35,23 @@
             margin-top: 10px;
             width: 200px;
         }
-        
+
         button.contact-btn:hover {
-            background-color: #45a049;
+            background-color: #357a38;
         }
-        
-        /* Form styling improvements */
+
+        button.contact-btn:disabled {
+            background-color: #999999;
+            cursor: not-allowed;
+        }
+
+        /* Form styling */
         form {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         input, textarea {
             width: 100%;
             padding: 12px;
@@ -55,18 +60,41 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        
+
         textarea {
             resize: vertical;
+        }
+
+        /* FIX #3: Success and error feedback messages */
+        .form-message {
+            display: none;
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 14px 20px;
+            border-radius: 4px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .form-message.success {
+            background-color: #e6f4ea;
+            color: #2d6a31;
+            border: 1px solid #a8d5ac;
+        }
+
+        .form-message.error {
+            background-color: #fdecea;
+            color: #a61c00;
+            border: 1px solid #f5a9a9;
         }
     </style>
 </head>
 <body>
 <header>
     <a href="index.html" class="logo-link">
-        <img src="img/CoresightConsulting.png" alt="Company Logo" class="logo">
+        <img src="img/CoresightConsulting.png" alt="Coresight Consulting Logo" class="logo">
     </a>
-</header> 
+</header>
 <nav>
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -76,25 +104,76 @@
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
+
 <section id="hero">
     <div class="container">
         <h1>Contact Us</h1>
     </div>
 </section>
+
 <section id="contact-form">
     <div class="container">
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Message" rows="5" required></textarea>
-            <button type="submit" class="contact-btn">Submit Inquiry</button>
+        <!-- FIX #1 & #2: Form now submits to Formspree with name attributes on all inputs -->
+        <!-- IMPORTANT: Replace YOUR_FORM_ID below with your Formspree form ID -->
+        <!-- Sign up free at https://formspree.io and create a form to get your ID -->
+        <form id="contactForm" action="https://formspree.io/f/mrevylqj" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <button type="submit" class="contact-btn" id="submitBtn">Submit Inquiry</button>
         </form>
+
+        <!-- FIX #3: Feedback messages shown after submission -->
+        <div class="form-message success" id="successMsg">
+            ✅ Thank you! Your message has been sent. We'll be in touch shortly.
+        </div>
+        <div class="form-message error" id="errorMsg">
+            ❌ Something went wrong. Please try again or email us directly.
+        </div>
     </div>
 </section>
+
 <footer>
     <div class="container">
         <p>&copy; 2024 Coresight Consulting. All rights reserved.</p>
     </div>
 </footer>
+
+<script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                successMsg.style.display = 'block';
+                submitBtn.textContent = 'Submit Inquiry';
+                submitBtn.disabled = false;
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (err) {
+            errorMsg.style.display = 'block';
+            submitBtn.textContent = 'Submit Inquiry';
+            submitBtn.disabled = false;
+        }
+    });
+</script>
 </body>
 </html>
